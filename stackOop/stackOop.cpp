@@ -8,12 +8,75 @@ using namespace std;
 
 class Stack {
 private:
+    int* a;
+    int top;
+    int max;
+public:
+    Stack(int size) {
+      this->a = new int[size];
+      this-> top = -1;
+      max = size;
+     
+            
+    }
+    bool stackFull() {
+        return top == max - 1;
+        
+    }
+    bool stackEmpty() {
+        return top = -1;
+    }
+    void push(int val) {
+        if (!stackFull()){
+            a[++top] =val;
+        }
+        else {
+            cout << "FULL Size";
+        }
+       
+    }
+    int getTop() {
+        if (stackEmpty()) {
+            return 0 ;
+        }
+        else {
+            return a[top];
+        }
+    }
+    void pop() {
+        if (stackEmpty()) {
+            return ;
+        }
+        else {
+            top--;
+        }
+    }
+    void getAll() {
+        if (top >= 0) {
+            for (int i = top; i >= 0; i--) {
+                cout << a[i] << " ";
+            }
+        }
+        else{
+            cout << "Empty ";
+        }
+    }
+
+
 
 };
 
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    Stack s(10);
+    
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(5);
+    s.push(6);
+    s.getAll();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
