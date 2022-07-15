@@ -26,6 +26,9 @@ public:
     bool stackEmpty() {
         return top = -1;
     }
+    int getLength() {
+        return (top+1);
+    }
     void push(int val) {
         if (!stackFull()){
             a[++top] =val;
@@ -53,7 +56,7 @@ public:
     }
     void getAll() {
         if (top >= 0) {
-            for (int i = top; i >= 0; i--) {
+            for (int i = 0; i <=top; i++) {
                 cout << a[i] << " ";
             }
         }
@@ -61,6 +64,22 @@ public:
             cout << "Empty ";
         }
     }
+    void sortUp() {
+        
+        for (int i = 0; i < top+1; i++) {
+            int tmp = -1;
+            for (int j = i + 1; j < top + 1; j++) {
+                if (a[j] > a[i]) {
+                    tmp = a[j];
+                  
+                    break;
+                }
+            }
+            cout << tmp << " ";
+        }
+        cout << endl;
+    }
+
 
 
 
@@ -73,10 +92,14 @@ int main()
     
     s.push(1);
     s.push(2);
-    s.push(3);
     s.push(5);
-    s.push(6);
+    s.push(-4);
+    s.push(3);
     s.getAll();
+    cout << endl;
+    s.sortUp();
+   cout<< s.getLength();
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
