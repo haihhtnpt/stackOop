@@ -1,18 +1,17 @@
-// stackOop.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// problem1Stack.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
-#include<stack>
+#include<string>
+#include <stdio.h>
 
 using namespace std;
 
 class Node {
-
 private:
-    Node * next;
-    int data;
+	Node* next;
+	int data;
 public:
-
 	Node() {
 		data = 0;
 		next = NULL;
@@ -21,25 +20,22 @@ public:
 		this->data = data;
 		this->next = NULL;
 	}
-	int  getData() {
+	int getData() {
 		return data;
 	}
-
 	Node* getNext() {
 		return next;
 	}
-
-	void setData(int data) {
+	void setData() {
 		this->data = data;
 	}
-	void setNext(Node* tmp) {
+	void setNext(Node * tmp) {
 		this->next = tmp;
-
 	}
-
-
 };
+ 
 typedef class Node* node;
+
 class Stack {
 private:
 	Node* pHead;
@@ -49,19 +45,17 @@ public:
 		pHead = NULL;
 		pTail = NULL;
 	}
-
 	void Push(int data) {
-		Node* tmp = new Node(data);
-		if (pHead == NULL) {
-			pHead = pTail=tmp;
+		node tmp = new Node(data);
+		if(pHead == NULL) {
+			pHead = pTail = tmp;
 			return;
 		}
 		else {
-			pTail->setNext(tmp);
-			pTail = tmp;
+		pTail->setNext(tmp);
+		pTail = tmp;
 		}
 	}
-
 	void Pop() {
 
 		Node* tmp = pHead;
@@ -84,35 +78,44 @@ public:
 			}
 		}
 	}
-
 	void getAll() {
-		for(node p=pHead;p!=NULL;p=p->getNext()){
+		for (node p = pHead; p != NULL; p = p->getNext()) {
 			cout << p->getData() << " ";
 		}
 	}
-	
 };
 class Expression {
-
+private:
+	string a;
+public:
+	Expression() {
+		a = "";
+	}
+	Expression(string s) {
+		this->a = s;
+	}
+	void Push(){
+		cout << a;
+	}
+	
 };
-
 
 int main()
 {
-    Stack s;
-    
-    s.Push(1);
-    s.Push(2);
-    s.Push(5);
-    s.Push(-4);
+	Stack s;
+
+	s.Push(1);
+	s.Push(2);
+	s.Push(5);
+	s.Push(-4);
 	s.Pop();
 	s.Push(1);
-    
-    s.getAll();
-    cout << endl;
-   // s.sortUp();
- //  cout<< s.getLength();
-    
+	s.getAll();
+	
+	Expression a("1-2*3x");
+	
+	cout << "demo";
+	a.Push();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
